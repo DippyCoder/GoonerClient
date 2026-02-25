@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "goonerclient",
+  "version": "${version}",
+  "name": "GoonerClient",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0-only",
+  "icon": "assets/goonerclient/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.dippycoder.goonerclient.client.GoonerclientDataGenerator"
+    ],
+    "client": [
+      "com.dippycoder.goonerclient.client.GoonerclientClient"
+    ],
+    "main": [
+      "com.dippycoder.goonerclient.Goonerclient"
+    ]
+  },
+  "mixins": [
+    "goonerclient.mixins.json",
+    {
+      "config": "goonerclient.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
