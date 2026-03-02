@@ -6,6 +6,6 @@ public class Goonerclient implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        System.out.println("Gooner Client geladen (main)");
+        System.out.println("Gooner Client loaded (main)");
     }
 }

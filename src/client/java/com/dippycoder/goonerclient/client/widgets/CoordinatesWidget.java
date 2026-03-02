@@ -8,7 +8,7 @@ import net.minecraft.client.gui.DrawContext;
 public class CoordinatesWidget extends Menu.Statement {
 
     public CoordinatesWidget(int x, int y) {
-        super("Coordinates", "Displays your current X, Y, Z position in the world.", x, y);
+        super("Coordinates", "Displays your current X, Y, Z position.", "World", x, y);
     }
 
     @Override

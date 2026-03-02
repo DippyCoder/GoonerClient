@@ -59,20 +59,20 @@ public class MenuScreen extends Screen {
         GuiUtils.drawGlassPanel(context, panelX, panelY, PANEL_W, PANEL_H, GuiTheme.CORNER);
 
         // banner section (placeholder purple gradient)
-        context.fill(panelX + GuiTheme.CORNER, panelY,
-                panelX + PANEL_W - GuiTheme.CORNER, panelY + BANNER_H, 0xFF1A0A2E);
-        context.fill(panelX + GuiTheme.CORNER, panelY,
-                panelX + PANEL_W - GuiTheme.CORNER, panelY + BANNER_H / 2, 0x22AA55FF);
-        // placeholder label - swap with actual texture later
-        String placeholder = "[ Banner Image ]";
+        String placeholder = "";
         int tx = panelX + (PANEL_W - textRenderer.getWidth(placeholder)) / 2;
         context.drawTextWithShadow(textRenderer, placeholder,
                 tx, panelY + BANNER_H / 2 - 4, GuiTheme.ACCENT_BRIGHT);
 
-        // divider line
-        context.fill(panelX + 10, panelY + BANNER_H,
-                panelX + PANEL_W - 10, panelY + BANNER_H + 1, GuiTheme.ACCENT_DIM);
-
+        // with this:
+        context.drawTexture(
+                net.minecraft.client.gl.RenderPipelines.GUI_TEXTURED,
+                BANNER_TEXTURE,
+                panelX + GuiTheme.CORNER, panelY + 3,
+                0f, 0f,
+                PANEL_W - GuiTheme.CORNER * 2, BANNER_H,
+                PANEL_W - GuiTheme.CORNER * 2, BANNER_H
+        );
         // buttons
         for (HoverButton btn : buttons) {
             btn.render(context, mouseX, mouseY);

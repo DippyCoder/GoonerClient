@@ -13,7 +13,7 @@ public class TimeWidget extends Menu.Statement {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public TimeWidget(int x, int y) {
-        super("Time", "Shows your current system time.", x, y);
+        super("Time", "Shows your current system time.", "World", x, y);
     }
 
     @Override

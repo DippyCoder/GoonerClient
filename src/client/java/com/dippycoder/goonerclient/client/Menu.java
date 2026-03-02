@@ -58,6 +58,18 @@ public class Menu {
             this.enabled = enabled;
         }
 
+        protected String category;
+
+        public Statement(String name, String description, String category, int x, int y) {
+            this.name = name;
+            this.description = description;
+            this.category = category;
+            this.x = x;
+            this.y = y;
+        }
+
+        public String getCategory() { return category; }
+
         public abstract void render(DrawContext context);
 
         public void toggle() {

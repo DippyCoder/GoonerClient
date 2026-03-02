@@ -16,7 +16,7 @@ public class KeystrokesWidget extends Menu.Statement {
     private static final int KEY_GAP = 2;
 
     public KeystrokesWidget(int x, int y) {
-        super("Keystrokes", "Displays your WASD keys and optionally jump, sprint and sneak.", x, y);
+        super("Keystrokes", "Displays your WASD keys and optionally jump, sprint and sneak.", "Utility", x, y);
     }
 
     @Override

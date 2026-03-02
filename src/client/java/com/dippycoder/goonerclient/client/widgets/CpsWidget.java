@@ -15,7 +15,7 @@ public class CpsWidget extends Menu.Statement {
     private final Deque<Long> rightClicks = new ArrayDeque<>();
 
     public CpsWidget(int x, int y) {
-        super("CPS", "Tracks your left and right clicks per second.", x, y);
+        super("CPS", "Tracks your left and right clicks per second.", "Counters", x, y);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             long now = System.currentTimeMillis();
             leftClicks.removeIf(t -> now - t > 1000);

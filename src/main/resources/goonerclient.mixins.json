@@ -6,7 +6,14 @@
   "mixins": [
   ],
   "client": [
-    "AttackMixin"
+    "AttackMixin",
+    "MouseMixin",
+    "GammaMixin",
+    "FovMixin",
+    "ScrollMixin",
+    "PlayerEntityRendererMixin",
+    "PlayerListHudMixin",
+    "ChatHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

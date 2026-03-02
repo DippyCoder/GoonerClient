@@ -13,7 +13,7 @@ public class ReachWidget extends Menu.Statement {
     private static final long DISPLAY_DURATION = 3000; // show for 3 seconds after hit
 
     public ReachWidget(int x, int y) {
-        super("Reach", "Shows the distance to the last entity you hit.", x, y);
+        super("Reach", "Shows the distance to the last entity you hit.", "Counters", x, y);
     }
 
     public void onHit(Entity target) {

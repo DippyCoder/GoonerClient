@@ -10,7 +10,7 @@ public class PlaytimeWidget extends Menu.Statement {
     private final long startTime = System.currentTimeMillis();
 
     public PlaytimeWidget(int x, int y) {
-        super("Playtime", "Tracks how long you have been playing this session.", x, y);
+        super("Playtime", "Tracks how long you have been playing this session.", "World", x, y);
     }
 
     @Override

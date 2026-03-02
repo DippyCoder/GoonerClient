@@ -19,6 +19,7 @@
 
 -  **Custom Nightly UI** — pixel-styled GUI in a dark / purple theme
 -  **Widget System** — modular, draggable HUD widgets with per-widget settings, toggling and position saving
+-  **Search Feature And Categories** - in the widget menu for easy navigation
 -  **CPS Widget** - Tracks your left and right clicks per second
 -  **FPS Widget** - Shows your current frames per second
 -  **Coordinates Widget** - Displays your current X, Y, Z position in the world
@@ -27,6 +28,20 @@
 -  **Reach Widget** - Shows the distance to the last entity you hit
 -  **Speed Widget** - Shows your current movement speed in blocks per second
 -  **Time Widget** - Shows your current system time
+-  **Brand Widget** - Shows the GoonerClient icon above your head, in tablist and chat (Work in Progress)
+-  **Fullbright Widget** - Gives you Night Vision
+-  **Ping Widget** - Shows your current server ping
+-  **Zoom Widget** - Allows you to zoom
+
+---
+
+## ⚠️ In Progress and Issues
+
+-  **Brand Icons** dont render
+-  **Bottom Widgets** chopped off
+-  **Widgets** can be dragged off screen and lost
+-  **Settings** are not implemented
+-  **Coniguration saving** does not work properly
 
 ---
 
@@ -80,4 +95,4 @@ The compiled `.jar` will be in `build/libs/`. Drop it into your Fabric mods fold
 ## ⚖️ License
 
 GoonerClient is licensed under the **GNU General Public License v3.0**.
-See [LICENSE](LICENSE) for full details.
+See [LICENSE](LICENSE) and [NOTICES](NOTICES) for full details.

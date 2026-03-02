@@ -17,7 +17,11 @@ public class WidgetRegistry {
             () -> new TimeWidget(10, 148),
             () -> new PlaytimeWidget(10, 160),
             () -> new KeystrokesWidget(10, 172),
-            () -> new ReachWidget(10, 220)
+            () -> new ReachWidget(10, 220),
+            () -> new FullbrightWidget(10, 232),
+            () -> new BrandWidget(10, 244),
+            () -> new ZoomWidget(10, 256),
+            () -> new PingWidget(10, 268)
 
     );
 

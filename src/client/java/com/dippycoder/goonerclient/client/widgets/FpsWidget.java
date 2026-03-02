@@ -8,7 +8,7 @@ import net.minecraft.client.gui.DrawContext;
 public class FpsWidget extends Menu.Statement {
 
     public FpsWidget(int x, int y) {
-        super("FPS", "Shows your current frames per second.", x, y);
+        super("FPS", "Shows your current frames per second.", "Counters", x, y);
     }
 
     @Override

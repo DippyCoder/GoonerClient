@@ -32,14 +32,12 @@ public class GuiUtils {
     public static void drawGlassPanel(DrawContext ctx, int x, int y, int w, int h, int c) {
         drawRoundedRect(ctx, x, y, w, h, c, GuiTheme.BG_PANEL);
         // top highlight shimmer
-        ctx.fill(x + c, y + 1, x + w - c, y + 2, 0x22FFFFFF);
         drawRoundedBorder(ctx, x, y, w, h, c, GuiTheme.BORDER_OFF);
     }
 
     // Accent-bordered glass panel
     public static void drawAccentPanel(DrawContext ctx, int x, int y, int w, int h, int c, int borderColor) {
         drawRoundedRect(ctx, x, y, w, h, c, GuiTheme.BG_PANEL);
-        ctx.fill(x + c, y + 1, x + w - c, y + 2, 0x22FFFFFF);
         drawRoundedBorder(ctx, x, y, w, h, c, borderColor);
     }
 }

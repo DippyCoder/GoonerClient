@@ -8,7 +8,7 @@ import net.minecraft.client.gui.DrawContext;
 public class SpeedWidget extends Menu.Statement {
 
     public SpeedWidget(int x, int y) {
-        super("Speed", "Shows your current movement speed in blocks per second.", x, y);
+        super("Speed", "Shows your movement speed in blocks per second.", "Counters", x, y);
     }
 
     @Override

@@ -1,12 +1,16 @@
 package com.dippycoder.goonerclient.client;
 
 import com.dippycoder.goonerclient.client.widgets.CpsWidget;
+import com.dippycoder.goonerclient.client.widgets.FullbrightWidget;
+import com.dippycoder.goonerclient.client.widgets.ZoomWidget;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GoonerclientClient implements ClientModInitializer {
 
@@ -28,11 +32,11 @@ public class GoonerclientClient implements ClientModInitializer {
         // load saved positions/state
         WidgetStorage.load(menu);
 
-        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (cpsWidget == null) return;
-            if (client.mouse.wasLeftButtonClicked()) cpsWidget.registerClick(false);
-            if (client.mouse.wasRightButtonClicked()) cpsWidget.registerClick(true);
-        });
+        for (Menu.Statement s : menu.getStatements()) {
+            if (s instanceof FullbrightWidget f) {
+                FullbrightWidget.active = f.isEnabled();
+            }
+        }
 
         // save on shutdown
         Runtime.getRuntime().addShutdownHook(new Thread(() -> WidgetStorage.save(menu)));
@@ -40,7 +44,7 @@ public class GoonerclientClient implements ClientModInitializer {
         HudRenderer.register();
 
         KeyBinding menuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.goonerclient.menu",
+                "Open GoonerClient Menu",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_RIGHT_SHIFT,
                 KeyBinding.Category.MISC
@@ -56,6 +60,32 @@ public class GoonerclientClient implements ClientModInitializer {
             }
         });
 
-        System.out.println("Gooner Client ClientInit geladen!");
+        KeyBinding zoomKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "Zoom",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_C,
+                KeyBinding.Category.MISC
+        ));
+
+        AtomicBoolean wasZooming = new AtomicBoolean(false);
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client.player == null) return;
+
+            ZoomWidget zoomer = null;
+            for (Menu.Statement s : menu.getStatements()) {
+                if (s instanceof ZoomWidget z && s.isEnabled()) { zoomer = z; break; }
+            }
+            boolean isZooming = zoomer != null && zoomKey.isPressed();
+
+            if (wasZooming.get() && !isZooming) {
+                ZoomWidget.onZoomStop();
+            }
+            wasZooming.set(isZooming);
+            ZoomWidget.zooming = isZooming;
+            ZoomWidget.tick();
+        });
+
+        System.out.println("Gooner Client ClientInit loaded!");
     }
 }
